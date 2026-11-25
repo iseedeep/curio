@@ -1,55 +1,89 @@
-# Curio — a personal encyclopedia
+<p align="center">
+  <img src="logo.webp" width="140" alt="Curio logo">
+</p>
 
-Curio is a curiosity-capture app: photograph or type anything that catches
-your attention, get a clear jargon-free explanation, and save it as an entry
-in your own searchable encyclopedia.
+<h1 align="center">Curio</h1>
 
-Two destinations, and nothing else:
+<p align="center"><em>A personal encyclopedia, built one curiosity at a time.</em></p>
 
-- **Capture** — opens directly to Capture. Take a photo, choose one from
-  Photos, or type a question. Photograph a passage and ask about the specific
-  line that confused you. Drafts survive switching apps, backing out of the
-  camera, or losing connection.
-- **Library** — a visual map of the things you've collected. Each entry is a
-  recognisable object: your actual photo, a tall miniature of a marked page,
-  a small note carrying your own words. Fine lines join connected entries.
-  Tap an object for a preview with Open / Connect; tap a line to see both
-  objects and the thought you saved about them. Long-press and drag to link,
-  or use Connect. Pan and pinch to explore; follow a thread and retrace it
-  with Back. Search flies to the object on the map; the clean A–Z index is
-  one tap away.
+## The idea
 
-Answers lead with a clear explanation, keep the original passage within
-reach, distinguish the author's words from Curio's interpretation, and never
-invent quotations or sources. Saving is one deliberate action with an
-editable suggested title; follow-ups deepen the same entry instead of
-creating near-identical records.
+You're reading a book and a line stops you. You're looking at a painting, a
+coin, a flower, and you want to know what it is and why it matters. You ask,
+you understand — and then, weeks later, it's gone. Not because it didn't
+matter, but because there was nowhere for it to live.
 
-## Tech
+Notes apps keep your words. Chatbots give you an answer and let it scroll
+away. Curio is built for the space between them: capture the thing that
+caught your attention, understand it in the moment, and keep it somewhere
+you can actually find it again — even when you've forgotten the title, the
+terminology, and which book it came from.
 
-- TypeScript, React 19, Tailwind CSS 4, Drizzle ORM, Bun
-- Client in `client/`, server actions in `server/src/actions.ts`, schema in
-  `server/src/schema.ts`, migrations in `drizzle/`
-- `bun run typecheck`, `bun run build`
+## What it does
 
-## Running it
+Curio has two destinations, and nothing else.
 
-This code was built to run as a Muse web artifact, and it depends on the
-Muse platform runtime: `@hatch/space-sdk` is a `file:` dependency pointing
-at the platform's SDK, and the server actions run against the platform's
-SQLite-backed data layer. It will **not** run standalone as-is outside that
-runtime — porting it to a standalone server (for example, swapping the SDK
-calls for a plain HTTP API and the Drizzle/SQLite layer for a database of
-your choice) is a real piece of work, not a one-line change.
+**Capture.** The app opens here. Take a photo, choose one from your photos,
+or type a question in your own words. Photograph a passage and ask about the
+specific line that confused you. If you switch apps, back out of the camera,
+or lose your connection, your draft is still there when you return.
 
-## Privacy
+**Understand.** You get an explanation that leads with the answer, in plain
+language, with a quiet way to ask a follow-up and go deeper. For a
+photographed passage, the original stays within reach, and the author's
+words are always kept distinct from the interpretation. Quotations and
+sources are never invented — if a line is unreadable, Curio says which part
+needs a clearer photo instead of guessing.
 
-No user data ships in this repo. The app database (`app.db`), which holds
-saved entries and their photos, is deliberately excluded, as are build
-output and `node_modules`. A fresh checkout starts with an empty Library.
+**Save.** Saving is one deliberate action, with a short title suggested for
+you to edit. Your question, the explanation, and the source photo stay
+together as a single entry, and follow-ups deepen that same entry — one
+idea, one record, no matter how many questions it took to understand it.
+
+**Library.** Your saved entries live on a visual map, not in a list of
+rows. Each entry is a recognisable object: your actual photograph, a tall
+miniature of the page you marked, a small note carrying your own words.
+Objects you connected sit near each other, joined by a fine line. A clean
+A–Z index and search are always one tap away when you know exactly what
+you're looking for.
+
+## The interesting part
+
+Most collections make you remember in order to find. Curio tries the
+opposite:
+
+- **Recognition by sight.** You should be able to spot your coin, your page,
+  and your book on the map with the labels covered — a round coin, a tall
+  book, and a wide photograph are easier to tell apart than three identical
+  tiles.
+- **Connections you chose.** Link two entries by dragging one onto the
+  other, and write the thought that joins them, in your words. Suggestions
+  appear as faint dotted lines you can accept or dismiss — the permanent
+  map only ever shows connections you made.
+- **Following a thread.** Tap a connected object and the map glides to it,
+  so you can start with a page from one book, follow it to another, and end
+  up at a thought you wrote weeks ago — then retrace your steps with Back.
+- **Recovery from a half-remembered phrase.** Search looks across titles,
+  your questions, and the explanations, and forgives near-misses: search
+  "spirit of the age" and the entry you saved as "spirit of the times"
+  still finds its way back to you.
+
+The map remembers where you left everything, too. If the coin was near the
+lower left yesterday, it's near the lower left tomorrow.
 
 ## Status
 
-Personal project, iPhone-first. No quizzes, streaks, XP, or social features.
-The name "Curio" is already taken on the App Store by other apps, so treat
-it as a working title.
+Curio is in development and **not yet runnable**. This repository holds the
+idea, the design, and the source written so far — it doesn't yet include
+everything needed to build and run the app on your own, and there's no
+download or beta yet. It's shared to show what Curio is and where it's
+going.
+
+No quizzes, no streaks, no XP, no social feed. "Curio" is a working title.
+
+## Under the hood
+
+TypeScript and React on the front, a small server layer with a SQLite
+schema and migrations (`drizzle/`) behind it. No user data lives in this
+repository — saved entries and their photos are deliberately excluded, so a
+fresh checkout starts with an empty Library.
