@@ -1,0 +1,63 @@
+@import "tailwindcss";
+@import "tailwindcss-safe-area";
+
+@theme {
+  --text-xs: 12px; --text-xs--line-height: 16px;
+  --text-sm: 14px; --text-sm--line-height: 20px;
+  --text-base: 16px; --text-base--line-height: 24px;
+  --text-lg: 18px; --text-lg--line-height: 28px;
+  --text-xl: 20px; --text-xl--line-height: 28px;
+  --text-2xl: 24px; --text-2xl--line-height: 32px;
+  --text-3xl: 30px; --text-3xl--line-height: 36px;
+  --text-4xl: 36px; --text-4xl--line-height: 40px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+}
+
+:root {
+  color-scheme: light dark;
+  /* Paper, not a feed. Content sits directly on white; ink does the work.
+     Colour survives only as a small dot and a soft tint per world. */
+  --bg: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface2: #F5F5F4;
+  --fill: #F5F5F4;
+  --well: #FAFAF9;
+  --text: #1C1C1E;
+  --dim: #3A3A3C;
+  --faint: #8E8E93;
+  --border: rgba(60, 60, 67, 0.12);
+  --accent: #1C1C1E;
+  --accent-soft: #F5F5F4;
+  --red: #C81E1E;
+  --green: #1F7A33;
+  --gold: #B07D10;
+  --radius: 20px;
+  --space-surface: var(--surface);
+  --space-surface-alt: var(--surface2);
+  --space-muted: var(--dim);
+  --space-border: var(--border);
+  --space-accent: var(--accent);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --surface: #000000;
+    --surface2: #1C1C1E;
+    --fill: #1C1C1E;
+    --well: #111111;
+    --text: #F5F5F7;
+    --dim: #D8D8DE;
+    --faint: #8E8E93;
+    --border: rgba(235, 235, 245, 0.16);
+    --accent: #F5F5F7;
+    --accent-soft: #1C1C1E;
+    --red: #FF6961;
+    --green: #30D158;
+    --gold: #FFD60A;
+  }
+}
+@layer base {
+  button, [role="button"], select, summary, input:not([type="checkbox"], [type="radio"]) { min-height: 2.75rem; }
+  body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+}
+.font-display { font-family: var(--font-sans); letter-spacing: -0.028em; }
